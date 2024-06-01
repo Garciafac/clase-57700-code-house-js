@@ -1,74 +1,44 @@
-// Estas son las variables de js
-//Variables tipo STRIGN (cadenas de textos o alfanumericas)
-//let nombre = "Karen"
-//let nombreCompleto = "Ivanna Macia"
-//let profecion = "Enologa"
-//console.log ("LaPeda:", nombre, nombreCompleto)
 
-// vARIABLE DEL TIPO NUMERICO
-//let anoActual = 2024
-//let anodeNacimiento = 1992
-//Variables calculadas de a partir de otros valores
-//let edadActual = anoActual - anodeNacimiento
+const carrito = []
 
-//let producto = "Cafetera Expreso"
-//let precioDelProducto = 119.40 // se utiliza el punto como separador decimal.
-//let precioViajeEnCrucero = 46732.45 
-
-//HERRAMIENTAS DE JS PARA EMPESAR A INTERACTUAR CON DATOS
-//OBJETO CONSOLE : console.log("texto estatico y " textoDinamico )
-
-//console.log ("Hola Mundo")
-//console.log ("Edad del Usuario: " + edadActual)
-
-//CUADROS DE DIALOGO
-//console.warn("Esto es una advertencia.")
-//console.error("Houston, tenemos un problema")
-
-//CUADROS DE DIALOGO
-//alert() - prompt() - confirm()
-
-//alert ("Esto es un mensaje para el usuario.")
-//console.log ("LaPeda:", nombre, nombreCompleto)
-
-//let nombreCompleto = prompt ("Ingrese tu nombre")
-//console.log("Bienenido:", nombreCompleto)
-//alert("Bienivenido: " + nombreCompleto)
-
-//let respuesta = confirm("¿ Deseas formatear tu disco rigido?")
-  //  console.log(respuesta)
-
-// parseInt()  recibe un numero entero o con decimales y lo retorna como numero entero.
-// parseFloat() recibe un numero con decimales, retorna un numero con decimales.
-
-//let numeroA = prompt ("Ingresa el primero numero")
-//let numeroB = prompt ("Ingresa el segundo numero")
+const centoMedico = [{imagen: "🚑", codigo: 1, nombre: 'traslados', precio: 30000},
+                     {imagen:"🏥", codigo: 2, nombre: "consultoriosMedicos", precio: 20000},
+                     {imagen: "🩺", codigo: 3, nombre: "consultaMedica", precio: 15000},
+                     {imagen:"👨‍⚕️", codigo: 4, nombre: "enfermeria", precio: 10000},
+                     {imagen: "💊", codigo: 5, nombre: "controlDroga", precio: 8000},
+                     {imagen: "🍺", codigo: 6, nombre: "controlAlcohol", precio: 7000},
+                     {imagen: "🔬", codigo: 7, nombre: "laboratorio", precio: 6000},
+                     {imagen: "👷‍♂️", codigo: 8, nombre: "preocupacional", precio: 5000},
+  ]
 
 
-
-
-// PREENTREGA 1
-
-
-const interesFijo = 1.13
-
-function calculadoraMensual(monto,meses,interesFijo) {
-  let montoTotal = (parseInt(monto) * parseInt(interesFijo))
-  for (let i = 1; i <= meses; i++) {
-    
-    console.log("Cuotas " + i + " $ " + (montoTotal / meses))
-  }
+function selccionarServicios(codigo){
+     let prestacionSeleccionada = centroMedico.find( centroMedic.codigo === codigo)
+     return prestacionSeleccionada  
 }
 
-function simularPrestamo(){
-  let monto = prompt ("ingrese el monto del prestamo a solicitar: ")
-  let totalCuotas = prompt ("en cuantas cuotas devuelves:")
+
+function comprar(){
+  let codigo = prompt( "Ingrese el codigo del Centro Medico: " )
+  let servicioMedico = selccionarServicios( parseInt (codigo))
 
 
-  if (monto !== "" && totalCuotas !== ""){
-    calculadoraMensual(monto, totalCuotas, interesFijo)
+
+  if (servicioMedico === undefined){
+    alert("📛 No se encontrol el servicio")
   } else{
-      alert("monto no valido")
+    carrito.push(prendaElegida)
+    alert(servicioMedico.nombre + "se agrego al carrito")
+    let respuesta = confirm("¿Deseas agregar, otro servicio?")
+    if (respuesta === true){
+    comprar()
+   } else {
+     const shop = new compra(carrito)
+     let subtotal = shop.obtenerSubtotal()
+     console.log("el costo total del servivio es $ " , subtotal.toLocalesString("es- AR"))
+ }
   }
-}
+      
 
+}
+Comprar()
