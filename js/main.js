@@ -1,7 +1,7 @@
 
 const carrito = []
 
-const centoMedico = [{imagen: "🚑", codigo: 1, nombre: 'traslados', precio: 30000},
+const centroMedico = [{imagen: "🚑", codigo: 1, nombre: 'traslados', precio: 30000},
                      {imagen:"🏥", codigo: 2, nombre: "consultoriosMedicos", precio: 20000},
                      {imagen: "🩺", codigo: 3, nombre: "consultaMedica", precio: 15000},
                      {imagen:"👨‍⚕️", codigo: 4, nombre: "enfermeria", precio: 10000},
@@ -13,32 +13,32 @@ const centoMedico = [{imagen: "🚑", codigo: 1, nombre: 'traslados', precio: 30
 
 
 function selccionarServicios(codigo){
-     let prestacionSeleccionada = centroMedico.find( centroMedic.codigo === codigo)
+     let prestacionSeleccionada = centroMedico.find((centroMedic)=> centroMedic.codigo === codigo)
      return prestacionSeleccionada  
 }
 
 
 function comprar(){
-  let codigo = prompt( "Ingrese el codigo del Centro Medico: " )
-  let servicioMedico = selccionarServicios( parseInt (codigo))
+    let codigo = prompt( "Ingrese el codigo del Centro Medico: " )
+    let servicioMedico = selccionarServicios( parseInt (codigo))
 
 
 
   if (servicioMedico === undefined){
     alert("📛 No se encontrol el servicio")
   } else{
-    carrito.push(prendaElegida)
-    alert(servicioMedico.nombre + "se agrego al carrito")
-    let respuesta = confirm("¿Deseas agregar, otro servicio?")
-    if (respuesta === true){
-    comprar()
-   } else {
-     const shop = new compra(carrito)
-     let subtotal = shop.obtenerSubtotal()
-     console.log("el costo total del servivio es $ " , subtotal.toLocalesString("es- AR"))
- }
+      carrito.push(servicioMedico)
+      alert(servicioMedico.nombre + "se agrego al carrito")
+      let respuesta = confirm("¿Deseas agregar, otro servicio?")
+      if (respuesta === true){
+      comprar()
+    } else {
+       const shop = new compra(carrito)
+       let subtotal = shop.obternerSubtotal()
+      console.log("el costo total del servivio es $ " , subtotal.toLocaleString("es-AR"))
+    }
   }
       
 
 }
-Comprar()
+comprar()

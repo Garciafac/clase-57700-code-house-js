@@ -1,6 +1,6 @@
-class carrito {
+class compra {
     constructor ( carritoDeCompras){
-        this.crrito = carritoDeCompras
+        this.carrito = carritoDeCompras
     }
     obternerSubtotal(){
         if(this.carrito.length > 0 ){
